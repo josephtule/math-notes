@@ -216,38 +216,34 @@ $$
 u(t) = K(1-0) = K \quad \text{for } 0<t<\tau
 $$
 
-After $\tau$ time units, the input is 
+After $\tau$ time units, the input is
 
 $$
 u(t) = K(1-K) = K - K^2 \quad \text{for } \tau < t < 2\tau
 $$
 
-\noindent For the next $\tau$ time units, $y(t)$ is equal to this (i.e. for $2\tau < t < 3\tau$). Continuing this results in 
+\noindent For the next $\tau$ time units, $y(t)$ is equal to this (i.e. for $2\tau < t < 3\tau$). Continuing this results in
 
 \begin{equation}
     y(t) = K - K^2 + K^3 + \cdots + (-1)^{n-1}K^{n-1} \quad \text{for } n\tau < t < (n+1)\tau
     \label{outputn}
 \end{equation}
 
-If $K < 1$ then equation \ref{outputn} implies that $y(t)$ converges to a limit 
+If $K < 1$ then equation \ref{outputn} implies that $y(t)$ converges to a limit
 
 \begin{equation}
     \lim_{t \rightarrow \infty} y(t) = K - K^2 + K^3 - K^4 + \cdots = \frac{K}{1 + K}
 \end{equation}
 
-\noindent If $K = 1$ then it bounces between $0$ and $1$, if $K>1$, then it diverges in amplitude. As $K$ approaches $1$, the output is half the desired, but we can multiply the desired output by $1+K$ before the comparison. 
+\noindent If $K = 1$ then it bounces between $0$ and $1$, if $K>1$, then it diverges in amplitude. As $K$ approaches $1$, the output is half the desired, but we can multiply the desired output by $1+K$ before the comparison.
 
-This result shows that the gain cannot but arbitrarily large for all systems (especially those with delays, even arbitrarily small delays). Most real systems include delays but control inputs are not going to be copies of the output. 
-
-
-
-
-
-
-
-
+This result shows that the gain cannot but arbitrarily large for all systems (especially those with delays, even arbitrarily small delays). Most real systems include delays but control inputs are not going to be copies of the output. The amplifier, $K$, changes the shape of the signal and is called a "compensator".
 
 \section{Feedback Control Engineering}
+
+
+
+
 
 \section{Control Theory Background}
 
