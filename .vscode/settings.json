@@ -16,5 +16,8 @@
         "showtabs",
         "stringstyle",
         "tabsize"
+    ],
+    "cSpell.ignoreWords": [
+        "examplenull"
     ]
 }

@@ -1,0 +1,152 @@
+\documentclass[10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage[marginparwidth=1in]{geometry}
+\usepackage{marginnote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{matlab-prettifier}
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+]{biblatex}
+\addbibresource{Reference.bib}
+
+\newenvironment{theorem}[2][Theorem]{
+    \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{
+\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{
+    \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{
+\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{
+    \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{
+\end{trivlist}}
+\newenvironment{problem}[2][Problem]{
+    \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{
+\end{trivlist}}
+\newenvironment{question}[2][Question]{
+    \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{
+\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{
+    \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{
+\end{trivlist}}
+
+\newlist{indentlist}{enumerate}{2}
+\setlist[indentlist, 1]{label=(\alph*), listparindent=\parindent}
+\setlist[indentlist, 2]{label=\roman*., listparindent=\parindent}
+
+\newlist{noindentlist}{enumerate}{2}
+\setlist[noindentlist, 1]{label=(\alph*), listparindent=\parindent, leftmargin=6mm}
+\setlist[noindentlist, 2]{label=\roman*., listparindent=\parindent}
+
+\newenvironment{solution}{
+\begin{proof}[Solution]}{
+\end{proof}}
+
+\newcommand{\rank}{{\rm rank\;}}
+\newcommand{\image}{{\rm Im\;}}
+\newcommand{\stack}{{\rm stack\;}}
+\newcommand{\Span}{{\rm span\;}}
+\newcommand{\diag}{{\rm diag\;}}
+\newcommand{\col}{{\rm col\;}}
+\newcommand{\cp}{{\rm cp\;}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{property}{Property}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}{Example}
+\newtheorem*{examplenull}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{fact}{Fact}
+\newtheorem{exmp}{Example}[section]
+\newtheorem{defn}{Definition}[section]
+\def\n{{\bf n}}
+\def\m{{\bf m}}
+\def\r{{\bf r}}
+\def\c{{\bf c}}
+\def\scr#1{{\mathcal #1}}
+\def\rep#1{(\ref{#1})}
+\def\eq#1{
+    \begin{equation}#1
+\end{equation}}
+\def\qed{ \rule{.1in}{.1in}}
+
+\def\matt#1{
+    \begin{bmatrix}#1
+\end{bmatrix}}
+\newcommand{\vecb}[1]{\boldsymbol{#1}}
+\newcommand{\dvecb}[1]{\dot{\boldsymbol{#1}}}
+\newcommand{\ddvecb}[1]{\ddot{\boldsymbol{#1}}}
+\newcommand{\unitv}[1]{\hat{\boldsymbol{#1}}}
+\newcommand{\vecbt}[1]{\Tilde{\boldsymbol{#1}}}
+\newcommand{\vecbb}[1]{\Bar{\boldsymbol{#1}}}
+\newcommand{\norm}[2]{\left\Vert {#1} \right\Vert_{#2}}
+\newcommand{\tbf}[1]{\textbf{#1}}
+\newenvironment{aequation}
+{
+    \begin{equation}
+    \begin{aligned}}
+        {
+        \end{aligned}
+\end{equation}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\title{Chapter 2 - Logic}
+\author{Joseph Le}
+
+\maketitle
+
+\end{document}
