@@ -565,6 +565,50 @@ Cartesian products can be made with other Cartesian products as well, for exampl
     \end{enumerate}
 
     \section{Union, Intersection, Difference}
+    \begin{definition}
+        Suppose $A$ and $B$ are sets.
+
+        The \textbf{union} of $A$ and $B$ is the set \hfill $A \cup B = \{x: x\in A \lor x\in B\}$
+
+        The \textbf{intersection} of $A$ and $B$ is the set \hfill $A \cap B = \{x: x\in A \land x\in B\}$
+
+        The \textbf{difference} of $A$ and $B$ is the set \hfill $A-B = A\setminus B = \{x:x\in A \land x\not\in B\}$
+    \end{definition}
+
+    \begin{example} Suppose $A = \{a,b,c,d,e\}$, $B = \{d,e,f\}$, and $C = \{1,2,3\}$
+        \begin{enumerate}
+            \item $A\cup B = \{a,b,c,d,e,f\}$
+            \item $A\cap B = \{d,e\}$
+            \item $A-B = \{a,b,c\}$
+            \item $B-A = \{f\}$
+            \item $(A-B)\cup(B-A)=\{a,b,c,f\}$
+            \item $A\cup C = \{a,b,c,d,e,1,2,3\}$
+            \item $A\cap C = \varnothing$
+            \item $A-C = A$
+            \item $(A\cap C)\cup (A-C) = A$
+            \item $(A\cap B)\times B = \{d,e\}\times\{d,e,f\} = \{(d,d),(d,e),(d,f),(e,d),(e,e),(e,f)\}$
+            \item $
+                \begin{aligned}[t]
+                    (A\times C)\cap(B\times C) = \{
+                        &(a,1),(a,2),(a,3),(b,1),(b,2),(b,3),\\
+                        &(c,1),(c,2),(c,3),(d,1),(d,2),(d,3),(e,1),(e,2),(e,3)
+                    \}\\
+                    \cap\{&(d,1),(d,2),(d,3),(e,1),(e,2),(e,3),(f,1),(f,2),(f,3)\}\\
+                    = \{&(d,1),(d,2),(d,3),(e,1),(e,2),(e,3)\}
+                \end{aligned}
+                $
+            \item $[2,5]\cup[3,6]=[2,6]$
+            \item $[2,5]\cap[3,6]=[3,5]$
+            \item $[2,5]-[3,6]=[2,3)$ (up to but not including 3 since it was removed)
+            \item $[0,3]-[1,2]=[0,1)\cup(2,3]$
+        \end{enumerate}
+    \end{example}
+
+    It is always true for any sets $X$ and $Y$ that $X \cup Y = Y \cup X$ and $X \cap Y = Y \cap X$, but $X - Y \neq Y - X$ in general.
+
+    \begin{example}
+        Let $A = \{(x,x^2):x\in\R\}$ be a parabola and $B =\{(x,x+2):x\in\R\}$ be a line. $A\cup B$ shows all the points on both functions, $A\cap B$ shows the intersection points, $A-B$ shows the parabola with the intersections missing. Using set builder notation, $A\cup B =\{(x,y):x\in\R, y = x^2 \lor y=x+2\}$ and $A-B = \{(x,x^2): x\in\R-\{-1,2\}\}$ (the $x$-coordinate of the intersections is at $\{-1,2\}$)
+    \end{example}
 
     \section{Complement}
 
