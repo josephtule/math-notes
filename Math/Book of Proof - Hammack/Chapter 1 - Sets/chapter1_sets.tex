@@ -427,6 +427,70 @@ Cartesian products can be made with other Cartesian products as well, for exampl
         If a finite set has $n$ elements ($|B|=n$), then it has $2^n$ subsets.
     \end{fact}
 
+    Note that for a set $B = \{1,2,\{1,3\}\}$, $\{1,3\}$ is not a subset of $B$ because $3 \not\in B$ but $\{1,3\}$ is an \textit{element} of $B$ and $\{\{1,3\}\} \subseteq B$.
+
+    \begin{example}
+        These are all true
+        \begin{enumerate}[label=\arabic*., leftmargin=*, align=left]
+            \item $1 \in \{1, \{1\}\}$ \dotfill 1 is the first element in the set
+            \item $1 \not\subseteq \{1,\{1\}\}$ \dotfill 1 is not a set
+            \item $\{1\} \in \{1,\{1\}\}$ \dotfill $\{1\}$ is the second element in the set
+            \item $\{1\} \subseteq \{1,\{1\}\}$ \dotfill because it is a set that includes the first element
+            \item $\{\{1\}\} \not\in \{1,\{1\}\}$ \dotfill because the set does not contain $\{\{1\}\}$
+            \item $\{\{1\}\} \subseteq \{1,\{1\}\}$ \dotfill because it is a set that contains the second element
+            \item $\N \not\in \N$ \dotfill $\N$ is a set not a number
+            \item $\N \subseteq \N$ \dotfill because $X \subseteq X, \; \forall X$
+            \item $\varnothing \not\in \N$ \dotfill because $\varnothing$ is not an element of $\N$
+            \item $\varnothing \subseteq \N$ \dotfill because $\varnothing$ is a subset of every set
+            \item $\N \in \{\N\}$ \dotfill because it is an element of the set
+            \item $\N \not\subseteq \{\N\}$ \dotfill because the elements of $\N$ is not in $\{\N\}$
+            \item $\varnothing \not\in \{\N\}$ \dotfill because the set does not contain the empty set
+            \item $\varnothing \subseteq \{\N\}$ \dotfill because $\varnothing$ is a subset of every set
+            \item $\varnothing \in \{\varnothing,\N\}$ \dotfill because it is the first element in the set
+            \item $\varnothing \subseteq \{\varnothing,\N\}$ \dotfill because $\varnothing$ is a subset of every set
+            \item $\{\N\} \subseteq \{\varnothing,\N\}$ \dotfill because it is a set containing the second element
+            \item $\{\N\} \not\subseteq \{\varnothing,\{\N\}\}$ \dotfill because $\N \not\in \{\varnothing,\{\N\}\}$
+            \item $\{\N\} \in \{\varnothing,\{\N\}\}$ \dotfill because $\{\N\}$ is the second element of the set
+            \item $\{(1,2),(2,2),(7,1)\} \subseteq \N\times\N$ \dotfill because the elements are in $\N\times\N$
+        \end{enumerate}
+    \end{example}
+
+    \subsection{Exercises}
+    \begin{enumerate}[label=\Alph*.]
+        \item List all subsets of the following sets.
+            \begin{enumerate}[label=\arabic*.]
+                \item $\{1,2,3,4\}$: $
+                    \begin{aligned}[t]
+                        &\varnothing,\\
+                        &\{1\},\{2\},\{3\},\{4\},\\
+                        &\{1,2\},\{1,3\},\{1,4\},\{2,3\},\{2,4\},\{3,4\},\\
+                        &\{1,2,3\},\{1,3,4\},\{2,3,4\},\{1,2,4\},\\
+                        &\{1,2,3,4\}
+                    \end{aligned}
+                    $
+                    \stepcounter{enumii}
+                \item $\{\{\R\}\}$: $\varnothing,\{\{\R\}\}$
+                    \stepcounter{enumii}
+                \item $\{\varnothing\}$: $\varnothing, \{\varnothing\}$
+                    \stepcounter{enumii}
+                \item $\{\R,\{\Q,\N\}\}$: $\varnothing, \{\R\}, \{\{\Q,\N\}\}, \{\R,\{\Q,\N\}\}$
+            \end{enumerate}
+        \item Write out the following sets by listing their elements.
+            \begin{enumerate}[label=\arabic*.]
+                    \setcounter{enumii}{8}
+                \item $\{X: X \subseteq \{3,2,a\}, |X| = 2\} = \{\{3,2\},\{3,a\},\{2,a\}\}$
+                    \stepcounter{enumii}
+                \item $\{X: X \subseteq \{3,2,a\}, |X| = 4\} = \{\}$
+            \end{enumerate}
+        \item Decide if the following statements are true or false. Explain.
+            \begin{enumerate}[label=\arabic*.]
+                    \setcounter{enumii}{12}
+                \item $\R^3 \subseteq \R^3$: True, because all sets are subsets of themselves.
+                    \stepcounter{enumii}
+                \item $\{(x,y)\in\R^2:x-1=0\} \subseteq \{(x,y)\in\R^2: x^2-x=0\}$: True, because $\{(x,y)\in\R^2:x-1=0\} ={(1,y): y\in\R}$ which is a vertical line at $x=1$ and the second set contains that as well as a line at $x=0$.
+            \end{enumerate}
+    \end{enumerate}
+
     \section{Power Sets}
 
     \section{Union, Intersection, Difference}
