@@ -610,6 +610,67 @@ Cartesian products can be made with other Cartesian products as well, for exampl
         Let $A = \{(x,x^2):x\in\R\}$ be a parabola and $B =\{(x,x+2):x\in\R\}$ be a line. $A\cup B$ shows all the points on both functions, $A\cap B$ shows the intersection points, $A-B$ shows the parabola with the intersections missing. Using set builder notation, $A\cup B =\{(x,y):x\in\R, y = x^2 \lor y=x+2\}$ and $A-B = \{(x,x^2): x\in\R-\{-1,2\}\}$ (the $x$-coordinate of the intersections is at $\{-1,2\}$)
     \end{example}
 
+    \subsection*{Exercises}
+    \begin{enumerate}
+        \item Suppose $A = \{4,3,6,7,1,9\}$, $B = \{5,6,8,4\}$, and $C = \{5,8,4\}$. Find:
+            \begin{enumerate}[label=(\alph*)]
+                \item $A \cup B = \{1,3,4,5,6,7,8,9\}$
+                \item $A \cap B = \{6\}$
+                \item $A - B = \{3,7,1,9\}$
+                \item $A - C = \{3,6,7,1,9\}$
+                \item $B - A = \{5,8\}$
+                \item $A \cap C = \{4\}$
+                \item $B \cap C = \{5,8\}$
+                \item $B \cup C = \{5,6,8,4\}$
+                \item $C - B = \varnothing$
+            \end{enumerate}
+            \stepcounter{enumi}
+        \item Suppose $A = \{0,1\}$ and $B = \{1,2\}$. Find:
+            \begin{enumerate}[label=(\alph*)]
+                \item $(A \times B) \cap (B \times B) = \{(1,1),(1,2)\}$
+                \item $(A \times B) \cup (B \times B) = \{(0,1),(0,2),(1,1),(1,2),(2,1),(2,2)\}$
+                \item $(A \times B) - (B \times B) = \{(0,1),(0,2)\}$
+                \item $(A \cap B) \times A = \{1\} \times \{0,1\} = \{(1,0),(1,1)\}$
+                \item $(A \times B) \cap B = \{(0,1),(0,2),(1,1),(1,2)\} \cap \{1,2\} = \varnothing$
+                \item $
+                    \begin{aligned}[t]
+                        \mathscr{P}(A) \cap \mathscr{P}(B) &= \{\varnothing,\{0\},\{1\},\{0,1\}\} \cap \{\varnothing,\{1\},\{2\},\{1,2\}\} \\
+                        &= \{\varnothing,\{1\}\}
+                    \end{aligned}
+                    $
+                \item $\mathscr{P}(A) - \mathscr{P}(B) = \{\varnothing,\{0\},\{0,1\}\}$
+                \item $\mathscr{P}(A \cap B) = \mathscr{P}(\{1\}) = \{\varnothing, \{1\}\}$
+                \item $
+                    \begin{aligned}[t]
+                        \mathscr{P}(A \times B) &= \mathscr{P}(\{(0,1),(0,2),(1,1),(1,2)\}) \\
+                        &= \{
+                            \begin{aligned}[t]
+                                &\varnothing,\{(0,1)\},\{(0,1)\},\{(1,1)\},\{(1,2)\},\\
+                                &\{(0,1),(0,2)\},\{(0,1),(1,1)\},\{(0,1),(1,2)\},\\
+                                &\{(0,2),(1,1)\},\{(0,2),(1,2)\},\{(1,1),(1,2)\}\\
+                                &\{(0,1),(0,2),(1,1)\},\{(0,1),(0,2),(1,2)\},\\
+                                &\{(0,1),(1,1),(1,2)\},\{(0,2),(1,1),(1,2)\},\\
+                                &\{(0,1),(0,2),(1,1),(1,2)\}
+                            \}
+                        \end{aligned}
+                    \end{aligned}
+                    $
+            \end{enumerate}
+            \stepcounter{enumi}
+        \item Sketch $X = [1,3] \times [1,3]$ and $Y = [2,4] \times [2,4]$ on $\R^2$. Shade in $X \cup Y, X \cap Y, X-Y, Y-X$.
+            \stepcounter{enumi}
+        \item Sketch $X = \{(x,y)\in\R^2:x^2 + y^2\leq1\}$ and $Y = \{(x,y)\in\R^2:x\geq0\}$. Shade in $X \cup Y, X \cap Y, X-Y, Y-X$.
+            \stepcounter{enumi}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.75\linewidth]{images/exercise_1_5.png}
+                \caption{Exercises 1.5.5 and 1.5.7}
+            \end{figure}
+        \item Is $(\R\times\Z)\cap(\Z\times\R)=\Z\times\Z$ true/false? Is $(\R\times\Z)\cup(\Z\times\R)=\R\times\R$ true/false?
+            \textbf{Statement 1}: The first Cartesian product gives a set of horizontal lines on $\R^2$ at each integer $y$-coordinate, the second product gives a set of vertical lines with the $x$-coordinate on the integers. Thus their intersection are the grid points whose coordinates are the integers, i.e. $\Z^2$. The statement is true.\\
+            \textbf{Statement 2}: Similar to statement 1, the first and second products give horizontal and vertical lines respectively, their union gives a grid but does not fill $\R^2$ because neither product is able to produce points whose coordinates are both non-integers. The statement is false.
+    \end{enumerate}
+
     \section{Complement}
 
     \section{Venn Diagrams}
