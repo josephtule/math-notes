@@ -324,30 +324,30 @@ Cartesian products can be made with other Cartesian products as well, for exampl
                 \begin{enumerate}[label=(\alph*)]
                     \item $A \times B = \{(1,a),(1,c),(2,a),(2,c),(3,a),(3,c),(4,a),(4,c)\}$
                     \item $B \times A = \{(a,1),(a,2),(a,3),(a,4),(c,1),(c,2),(c,3),(c,4)\}$
-                    \item $A \times A = \left\{
+                    \item $A \times A = \{
                             \begin{aligned}(1,1),(1,2),(1,3),(1,4),(2,1),(2,2),(2,3),(2,4),
-                                \\(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3),(4,4)
-                        \end{aligned} \right\}$
+                            \\(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3),(4,4) \}
+                        \end{aligned} $
                     \item $B \times B = \{(a,a),(a,c),(c,a),(c,c)\}$
                     \item $\varnothing \times B = \varnothing$
-                    \item $(A\times B)\times B =\left\{
-                            \begin{aligned}
-                                &( (1,a), a),( ( 1,c ), a),( (2,a), a),( (2,c), a), \\
+                    \item $(A\times B)\times B =
+                        \begin{aligned}[t]
+                            \{ &( (1,a), a),( ( 1,c ), a),( (2,a), a),( (2,c), a), \\
                                 &( (3,a), a),( (3,c), a),( (4,a), a),( (4,c), a), \\
                                 &( (1,a), c),( ( 1,c ), c),( (2,a), c),( (2,c), c),\\
-                                &( (3,a), c),( (3,c), c),( (4,a), c),( (4,c), c) \\
-                        \end{aligned}\right\}$
-                    \item $A \times (B \times B) = \left\{
-                            \begin{aligned}
-                                &(1,(a,a)),(1,(a,c)),(1,(c,a)),(1,(c,c)),\\
+                            &( (3,a), c),( (3,c), c),( (4,a), c),( (4,c), c) \}
+                        \end{aligned} $
+                    \item $A \times (B \times B) =
+                        \begin{aligned}[t]
+                            \{&(1,(a,a)),(1,(a,c)),(1,(c,a)),(1,(c,c)),\\
                                 &(2,(a,a)),(2,(a,c)),(2,(c,a)),(2,(c,c)),\\
                                 &(3,(a,a)),(3,(a,c)),(3,(c,a)),(3,(c,c)),\\
-                                &(4,(a,a)),(4,(a,c)),(4,(c,a)),(4,(c,c)),\\
-                        \end{aligned}\right\}$
-                    \item $B^3 = \left\{
-                            \begin{aligned}
-                                (a,a,a),(a,a,c),(a,c,c),(c,c,c),(c,a,a),(c,c,a),(a,c,a),(c,a,c)
-                        \end{aligned}\right\}$
+                            &(4,(a,a)),(4,(a,c)),(4,(c,a)),(4,(c,c))\}
+                        \end{aligned}$
+                    \item $B^3 =
+                        \begin{aligned}[t]
+                            \{ (a,a,a),(a,a,c),(a,c,c),(c,c,c),(c,a,a),(c,c,a),(a,c,a),(c,a,c) \}
+                        \end{aligned}$
                 \end{enumerate}
                 \stepcounter{enumii}
             \item
@@ -496,14 +496,73 @@ Cartesian products can be made with other Cartesian products as well, for exampl
         If $A$ is a set, the \textbf{power set} of $A$ is another set, denoted as $\mathscr{P}(A) = \{X: X \subseteq A\}$ and defined to be the set of all subsets of $A$.
     \end{definition}
 
-    For example, if $A = \{1,2,3\}$, then $\mathscr{P}(A) =\{\{\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}$. Also as mentioned previously, 
-    
+    For example, if $A = \{1,2,3\}$, then $\mathscr{P}(A) =\{\{\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}$. Also as mentioned previously,
+
     \begin{fact}
         If $A$ is a finite set, then $|\mathscr{P}(A)| = 2^{|A|}$
-        
     \end{fact}
 
+    \begin{example}
+        Sorry too lazy to copy this down, refer to example 1.7 for examples on the above face.
+    \end{example}
 
+    It is possible to list out the power set of finite sets, but obviously infinite sets have infinite subsets and are impossible to list out. The set $\R\times\R=\R^2$ is even larger. Any function $f:\R\rightarrow\R$ is a subset of $\R^2$ and any image on a flat plane can be considered a subset of $\R^2$ as well.
+
+    \subsection*{Exercises}
+
+    \begin{enumerate}[label=\Alph*.]
+        \item Write the following sets by listing their elements.
+            \begin{enumerate}[label=\arabic*.]
+                \item $\mathscr{P}(\{\{a,b\},\{c\}\})=\{\varnothing,\{a,b\},\{c\},\{\{a,b\},\{c\}\}\}$
+                    \stepcounter{enumii}
+                \item $\mathscr{P}(\{\{\varnothing\},5\})=\{\varnothing,\{\{\varnothing\}\},\{5\},\{\{\varnothing\},5\}\}$
+                    \stepcounter{enumii}
+                \item $\mathscr{P}(\mathscr{P}(\{2\}))=\mathscr{P}(\{\varnothing,2\})=\{\varnothing,\{\varnothing\},\{2\},\{\varnothing,2\}\}$
+                    \stepcounter{enumii}
+                \item $
+                    \begin{aligned}[t]
+                        \mathscr{P}(\{a,b\})\times\mathscr{P}(\{0,1\}) &= \{\varnothing,\{a\},\{b\},\{a,b\}\}\times\{\varnothing,\{0\},\{1\},\{0,1\}\}\\
+                        &= \{
+                            \begin{aligned}[t]
+                                &(\varnothing,\varnothing),(\varnothing,\{0\}),(\varnothing,\{1\}),(\varnothing,\{0,1\}),\\
+                                &(\{a\},\varnothing),(\{a\},\{0\}),(\{a\},\{1\}),(\{a\},\{0,1\}),\\
+                                &(\{b\},\varnothing),(\{b\},\{0\}),(\{b\},\{1\}),(\{b\},\{0,1\}),\\
+                            &(\{a,b\},\varnothing),(\{a,b\},\{0\}),(\{a,b\},\{1\}),(\{a,b\},\{0,1\}) \}
+                        \end{aligned}
+                    \end{aligned}
+                    $
+                    \stepcounter{enumii}
+                \item $
+                    \begin{aligned}[t]
+                        \mathscr{P}(\{a,b\}\times\{0\}) &= \mathscr{P}(\{(a,0),(b,0)\}) = \{\varnothing,\{(a,0)\},\{(b,0)\},\{(a,0),(b,0)\}\}
+                    \end{aligned}
+                    $
+                    \stepcounter{enumii}
+                \item $
+                    \{X\subseteq\mathscr{P}(\{1,2,3\}):|X|\leq 1\} = \{X \subseteq \{\varnothing,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}:|X|\leq 1\} = \{\varnothing,\{\varnothing\},\{\{1\}\},\{\{2\}\},\{\{3\}\},\{\{1,2\}\},\{\{1,3\}\},\{\{2,3\}\},\{\{1,2,3\}\}\}
+                    \label{crazyone}
+                    $
+            \end{enumerate}
+        \item Suppose that $|A|=m$ and $|B|=n$. Find the following cardinalities.
+            \begin{enumerate}[label=\arabic*.]
+                    \setcounter{enumii}{12}
+                \item $|\mathscr{P}(\mathscr{P}(\mathscr{P}(A)))| = 2^{2^{2^m}}$
+                    \stepcounter{enumii}
+                \item $|\mathscr{P}(A\times B)| = 2^{m \cdot n}$
+                    \stepcounter{enumii}
+                \item $|\{X\in\mathscr{P}(A): |X|\leq 1\}| = m + 1$ (see exercise \ref{crazyone})
+                    \stepcounter{enumii}
+                \item $
+                    \begin{aligned}[t]
+                        |\mathscr{P}(\mathscr{P}(\mathscr{P}(A \times \varnothing)))| &= |\mathscr{P}(\mathscr{P}(\mathscr{P}(\varnothing)))| \\
+                        &= |\mathscr{P}(\mathscr{P}(\{\varnothing,\{\varnothing\}\}))|\\
+                        &= |\mathscr{P}(\{\varnothing,\{\varnothing\},\{\{\varnothing\}\}\})|\\
+                        & = |\{\varnothing,\{\varnothing\},\{\{\varnothing\}\},\{\{\{\varnothing\}\}\}\}|\\
+                        &= 4
+                    \end{aligned}
+                    $
+            \end{enumerate}
+    \end{enumerate}
 
     \section{Union, Intersection, Difference}
 
