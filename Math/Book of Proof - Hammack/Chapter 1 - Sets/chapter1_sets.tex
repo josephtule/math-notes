@@ -278,7 +278,7 @@ Intervals on the number line are sets as well, for the real number line, these s
                 \begin{figure}
                     \centering
                     \includegraphics[width=0.75\linewidth]{images/exercise_1_1_D.jpg}
-                    \caption{Exercises 1.1D}
+                    \caption{Exercises 1.1.D}
                 \end{figure}
         \end{enumerate}
 \end{enumerate}
@@ -377,17 +377,22 @@ Cartesian products can be made with other Cartesian products as well, for exampl
     \item Sketch these Cartesian products on the $x-y$ plane $\R^2$ and $\R^3$.
         \begin{enumerate}[label=\arabic*.]
                 \setcounter{enumii}{8}
-            \item 9
+            \item $\{1,2,3\} \times \{-1,0,1\}$
                 \stepcounter{enumii}
-            \item 11
+            \item $[0,1]\times[0,1]$
                 \stepcounter{enumii}
-            \item 13
+            \item $\{1,1.5,2\}\times[1,2]$
                 \stepcounter{enumii}
-            \item 15
+            \item $\{1\}\times[0,1]$
                 \stepcounter{enumii}
-            \item 17
+            \item $\N \times \Z$
                 \stepcounter{enumii}
-            \item 19
+            \item $[0,1]\times[0,1]\times[0,1]$
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.75\linewidth]{images/exercise_1_2_B.jpg}
+                    \caption{Exercises 1.2.B}
+                \end{figure}
         \end{enumerate}
 \end{enumerate}
 
@@ -402,37 +407,39 @@ Cartesian products can be made with other Cartesian products as well, for exampl
         \item $\{2,3,7\} \not\subseteq \{2,4,5,6,7\}$
         \item $\{2,3,7\} \subseteq \{2,3,7\}$
         \item $\{(x,\sin{x}: x\in\R\} \subseteq \R^2$
-        \item $\{1,3,5,7,9,11,13,17,\dots\} \subseteq \N$
-        \item $\N \subseteq \Z \subseteq \Q \subseteq \R$
-        \item $\R \times \N \subseteq \R \times \R$
-        \item $A \subseteq A, \; \forall A$
-        \item $\varnothing \subseteq \varnothing$
-    \end{enumerate}
-\end{example}
+            \item $\{1,3,5,7,9,11,13,17,\dots\} \subseteq \N$
+            \item $\N \subseteq \Z \subseteq \Q \subseteq \R$
+            \item $\R \times \N \subseteq \R \times \R$
+            \item $A \subseteq A, \; \forall A$
+            \item $\varnothing \subseteq \varnothing$
+        \end{enumerate}
+    \end{example}
 
-The empty set $\varnothing$ is a subset of \textit{all} sets. This is because there are no elements in $\varnothing$ so there is not an element in $\varnothing$ that is not in $B$ or any other set. Formally written:
+    The empty set $\varnothing$ is a subset of \textit{all} sets. This is because there are no elements in $\varnothing$ so there is not an element in $\varnothing$ that is not in $B$ or any other set. Formally written:
 
-\begin{fact}
-    The empty set is a subset of all sets, that is, $\varnothing \subseteq B$ for any set $B$.
-\end{fact}
+    \begin{fact}
+        The empty set is a subset of all sets, that is, $\varnothing \subseteq B$ for any set $B$.
+    \end{fact}
 
+    One can make a subset starting with the empty set and adding elements from the target set. This can help with listing the possible subsets of a given set. A tree-like structure can be created with each layer representing an element from the given set with branches created from true or false statements on whether said element is added to the subset, thus results in the following fact:
 
+    \begin{fact}
+        If a finite set has $n$ elements ($|B|=n$), then it has $2^n$ subsets.
+    \end{fact}
 
+    \section{Power Sets}
 
+    \section{Union, Intersection, Difference}
 
-\section{Power Sets}
+    \section{Complement}
 
-\section{Union, Intersection, Difference}
+    \section{Venn Diagrams}
 
-\section{Complement}
+    \section{Indexed Sets}
 
-\section{Venn Diagrams}
+    \section{Sets That Are Number Systems}
 
-\section{Indexed Sets}
+    \section{Russell's Paradox}
 
-\section{Sets That Are Number Systems}
-
-\section{Russell's Paradox}
-
-% \printbibliography
-\end{document}
+    % \printbibliography
+    \end{document}
