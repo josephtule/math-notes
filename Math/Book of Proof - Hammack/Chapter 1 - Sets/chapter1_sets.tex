@@ -106,6 +106,7 @@
 \newcommand{\vecbb}[1]{\Bar{\boldsymbol{#1}}}
 \newcommand{\norm}[2]{\left\Vert {#1} \right\Vert_{#2}}
 \newcommand{\tbf}[1]{\textbf{#1}}
+\newcommand{\obar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \newenvironment{aequation}
 {
     \begin{equation}
@@ -672,10 +673,112 @@ Cartesian products can be made with other Cartesian products as well, for exampl
     \end{enumerate}
 
     \section{Complement}
+    Sets are almost always regarded as subsets of some larger set. For example, the prime numbers $P$ is a subset of $\N$ because it is the best setting to discuss the prime numbers. Anything not in $P$ should be in $\N$, which is called the \textbf{universal set} or \textbf{universe} for $P$.
+
+    Almost every mathematical set can be regarded as having some universal set. When unspecified, if $A$ is a set, then its universal set is often denoted as $U$.
+
+    \begin{definition}
+        Let $A$ bet a set with a universal set $U$. The \textbf{complement} of $A$ denoted $\bar{A}$, is the set $\bar{A}=U-A$.
+    \end{definition}
+
+    \begin{example}
+        If $P$ is the set of prime numbers, then $\bar P = \N - P = \{1,4,6,8,9,10,12, \dots\}$, the set of composite numbers and 1.
+    \end{example}
+
+    \begin{example}
+        Let $A = \{(x,x^2):x\in\R\}$. $\bar A$ is the plane $\R^2$ with the graph of $y=x^2$ carved out.
+    \end{example}
+
+    \subsection*{Exercises}
+    \begin{enumerate}
+        \item Let $A =\{1,3,4,6,7,9\}$ and $B =\{4,5,6,8\}$ with the universal set $U = \{0,1,2,\dots,10\}$. Find:
+            \begin{enumerate}[label=(\alph*)]
+                \item $\bar A = \{0,2,5,8,10\}$
+                \item $\bar B = \{0,1,2,3,7,9,10\}$
+                \item $A \cap \bar A = \varnothing$
+                \item $A \cup \bar A = U$
+                \item $A - \bar A = A$
+                \item $A - \bar B =\{4,6\}$
+                \item $\bar A - \bar B = \{5,8\}$
+                \item $\bar A \cap B = \{5,8\}$
+                \item $\overline{\bar{A} \cap B} = \{0,1,2,3,4,6,7,9,10\}$
+            \end{enumerate}
+            \stepcounter{enumi}
+        \item TODO: finish these
+    \end{enumerate}
 
     \section{Venn Diagrams}
 
+    Learned how to use these in 3rd grade. Helps visualize unions, intersections, and differences for sets. Limited to 3 sets as a visual device.
+
+    Unions and intersections are associative, i.e. $A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C)$ and similarly for intersections. This generally true when the operations are all the same, mixing of operations does not always hold this property.
+
+    The expressions $(A \cup B) \cap C$ and $A \cup (B \cap C)$ are different. The first set takes the union of $A$ and $B$ first, then intersects it with $C$ while the second set first takes the intersection of $B$ and $C$ and unions it with the entirety of $A$, where the first set doesn't include the entirety of $A$. Thus a statement like $A \cup B \cap C$ is meaningless because it doesn't specify the order of operations.
+
+    \textbf{Important Points}:
+    \begin{itemize}
+        \item If an expression involving sets uses only $\cup$, then parentheses are optional.
+        \item If an expression involving sets uses only $\cap$, then parentheses are optional.
+        \item If an expression uses both $\cup$ and $\cap$, then parentheses are \textbf{essential}.
+    \end{itemize}
+
+    \subsection*{Exercises}
+    \begin{enumerate}
+        \item
+            % TODO: finish these
+    \end{enumerate}
+
     \section{Indexed Sets}
+    Often, \textbf{indexed sets} are used rather than writing separate sets, i.e. $A_1, A_2, \text{ and } A_3$ instead of $A, B, \text{ and } C$.
+    Given sets $A_1, A_2, \dots, A_n$, the set $A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_n$ consists of everything that is in \textit{at least one} of the sets $A_i$.
+    Given sets $A_1, A_2, \dots, A_n$, the set $A_1 \cap A_2 \cap A_3 \cap \cdots \cap A_n$ consists of that is common to \textit{all} of the sets $A_i$.
+
+    \begin{definition}
+        Suppose $A_1, A_2,\dots,A_n$ are sets. Then,
+
+        $$
+        \begin{aligned}
+            A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_n &= \{x: x\in A_i \text{ for \textit{at least one set }} A_i, \text{ for } 1 \leq i \leq n\} \\
+            A_1 \cap A_2 \cap A_3 \cap \cdots \cap A_n &= \{x: x\in A_i \text{ for \textit{every set}} A_i, \text{ for } 1 \leq i \leq n\}
+        \end{aligned}
+        $$
+    \end{definition}
+
+    This notation gets messy so a sigma-like notation is used
+
+    $$
+    \bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_n \quad \text{and} \quad
+    \bigcap_{i=1}^{n} A_i = A_1 \cap A_2 \cap A_3 \cap \cdots \cap A_n
+    $$
+
+    \begin{example}
+        Suppose $A_1 = \{0,2,5\}, A_2 = \{1,2,5\}, \text{and} A_3 = \{2,5,7\}$. Then
+
+        $$
+        \begin{aligned}
+            \bigcup_{i=1}^3 A_i &= \{0,1,2,5,7\} \\
+            \bigcap_{i=1}^3 A_i &= \{2,5\}
+        \end{aligned}
+        $$
+    \end{example}
+
+    And similarly for an infinite number of sets
+
+    $$
+    \bigcup_{i=1}^{\infty} A_i = A_1 \cup A_2 \cup A_3 \cup \cdots \quad \text{and} \quad
+    \bigcap_{i=1}^{\infty} A_i = A_1 \cap A_2 \cap A_3 \cap \cdots
+    $$
+
+    \begin{example}
+        If $A_1 = \{-1,0,1\}, A_2 = \{-2,0,2\}, \dots, A_i = \{-i,0,i\}$.
+
+        Then $\bigcup_{i=1}^{\infty} A_i = \Z, \text{ and } \bigcap_{i=1}^{\infty} A_i = \{0\}$.
+    \end{example}
+
+    This notation can also be used like $\bigcup_{i=1}^{3} = \bigcup_{i\in\{1,2,3\}}$
+
+    
+
 
     \section{Sets That Are Number Systems}
 
