@@ -8,3 +8,7 @@
 *.synctex.gz
 *.run.xml
 *.out
+*.toc
+*.idx
+*.ilg
+*.ind
