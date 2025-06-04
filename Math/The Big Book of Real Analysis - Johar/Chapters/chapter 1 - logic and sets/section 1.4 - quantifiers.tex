@@ -88,11 +88,119 @@ In examples \ref{ex:quantifiers}(\ref{ex:quantifiers4}) and (\ref{ex:quantifiers
 \noindent where the negation of a compound quantifier statement results in the flipping of the quantifier and negation of the specified statement. These are called De Morgan's laws in formal logic.
 
 \begin{example}
-    Define two sets $\Gamma$ and $\Delta$ where $\Gamma$ is the set of letters in Latin and $\Delta$ is the set of all words in \textit{The Oxford English Dictionary}. 
+    Define two sets $\Gamma$ and $\Delta$ where $\Gamma$ is the set of letters in Latin and $\Delta$ is the set of all words in \textit{The Oxford English Dictionary}.
     Define a mathematical statement that depends on two variables $(\gamma,\delta) \in \Gamma \times \Delta$ which says "The word $\delta$ begins with the letter $\gamma$" as $P(\gamma,\delta)$
 
     \begin{enumerate}
-        \item 
-    \end{enumerate}
+        \item For any fixed $\gamma \in \Gamma$, we can create $Q \equiv (\delta \in \Delta): P(\gamma,\delta)$. Varying $\gamma$, a family of mathematical statements $\{Q(\gamma):\gamma \in \Gamma\}$ which is parametrized by $\gamma \in \Gamma$. Therefore, we can append with a quantifier for $\gamma$ to create a mathematical statement:
+            \begin{enumerate}[label=(\alph*)]
+                \item The statement:
+                    $$
+                    (\forall \gamma \in \Gamma), Q(\gamma) \equiv (\forall \gamma \in \Gamma), (\exists \delta \in \Delta) : P(\gamma,\delta)
+                    $$
+                    \noindent which reads as "For every letter $\gamma \in \Gamma$, there is a word $\delta \in \Delta$ such that the word $\delta$ starts with the letter $\gamma$." This is true, because there are words starting with any letter in the alphabet in the dictionary.
 
+                \item Another statement:
+                    $$
+                    (\forall \gamma \in \Gamma): Q(\gamma) \equiv (\exists \gamma \in \Gamma) : (\exists \delta \in \Delta) : P(\gamma,\delta)
+                    $$
+                    \noindent which reads as "There exists a letter $\gamma \in \Gamma$ such that there exists a word $\delta \in \Delta$ such that the word $\delta$ starts with the letter $\gamma$." This is also true, because for every letter there is a word that starts with that letter.
+
+            \end{enumerate}
+
+        \item Other combinations of quantifiers:
+            \begin{enumerate}[label=(\alph*)]
+                \item $(\forall \delta \in \Delta), (\exists \gamma \in \Gamma) : P(\gamma,\delta)$ reads as ``For every word $\delta \in \Delta$, there exists a letter $\gamma \in \Gamma$ such that the word $\delta$ starts with the letter $\gamma$.'' Which means every word starts with some letter which is true.
+
+                \item $(\exists \delta \in \Delta) : (\forall \gamma \in \Gamma), P(\gamma,\delta)$ reads as ``There is a word $\delta \in \Delta$ such that for every letter $\gamma \in \Gamma$ the word starts with that letter''. This is saying that there is a word that starts with every letter in the alphabet which is false.
+
+                \item $(\exists \delta \in \Delta) : (\exists \gamma \in \Gamma) : P(\gamma,\delta)$ reads as ``There exists a word such that there is a letter that the word starts with.'' This is true because every word starts with a letter.
+            \end{enumerate}
+    \end{enumerate}
+    \label{ex:oxfordquantifier}
+\end{example}
+
+\begin{remark}
+    Some remarks of Example \ref{ex:oxfordquantifier}.
+
+    \begin{enumerate}
+        \item We cannot generally move around quantifiers if there are many in a statement.
+
+        \item However, switching two quantifiers of the same type that are adjacent is allowed. For example, $( \exists \gamma\in\Gamma ): (\exists \delta\in\Delta):P(\gamma,\delta)$ and $(\exists \delta\in\Delta) : (\exists \gamma\in\Gamma):P(\gamma,\delta)$ are the same and can be read as $\exists(\gamma\in\Gamma)\land(\delta\in\Delta) : P(\gamma,\delta) \equiv (\exists(\gamma,\delta)\in\Gamma\times\Delta):P(\gamma,\delta)$. So we have:
+            \begin{align*}
+                (\exists\gamma\in\Gamma):(\exists\delta\in\Delta):P(\gamma,\delta) &\equiv (\exists(\gamma,\delta)\in\Gamma\times\Delta):P(\gamma,\delta) \\
+                &\equiv (\exists\delta\in\Delta):(\exists\gamma\in\Gamma):P(\gamma,\delta)
+            \end{align*}
+
+            Similarly,
+            \begin{align*}
+                (\forall\gamma\in\Gamma),(\forall \delta\in\Delta),P(\gamma,\delta) &\equiv (\forall(\gamma,\delta)\in\Gamma\times\Delta),P(\gamma,\delta) \\
+                &\equiv (\forall \delta\in\Delta),(\forall\gamma\in\Gamma),P(\gamma,\delta)
+            \end{align*}
+
+        \item If there is more than one quantifier in a statement, they can be treated as nested statements. Allows to define negations more systematically. Recall that negation of a quantifier statement flips the quantifier and negates its statement. The following are equivalent and is the negation is done by moving inwards one quantifier at at time:
+            \begin{align*}
+                \neg((\exists\gamma\in\Gamma):(\exists\delta\in\Delta):P(\gamma,\delta)) &\equiv (\forall\gamma\in\Gamma),\neg((\exists\delta\in\Delta):P(\gamma,\delta)) \\
+                &\equiv (\forall\gamma\in\Gamma),(\forall\delta\in\Delta),\neg P(\gamma,\delta)
+            \end{align*}
+            \label{rm:negquantifierremark}
+    \end{enumerate}
+    \label{rm:quantifierremark}
+\end{remark}
+
+\begin{example}
+    $X$ and $Y$ are sets, consider two families of statements: $\{P(x):x \in X\}$ and $\{Q(y):y \in Y\}$.
+    Suppose we have the statement $(\forall x \in X), (\exists y \in Y): P(x) \implies Q(y)$ and want to find negation.
+    Using Remark \ref{rm:quantifierremark}(\ref{rm:negquantifierremark}):
+
+    \begin{align*}
+        \neg((\forall x \in X), (\exists y \in Y): P(x) \implies Q(y))
+        &\equiv (\exists x \in X) : \neg((\exists y \in Y): P(x) \implies Q(y)) \\
+        &\equiv (\exists x \in X) : (\forall y \in Y), \neg(P(x) \implies Q(y))
+    \end{align*}
+
+    Using the equivalence in Equation \ref{eq:negimplies}:
+
+    \begin{align*}
+        \neg((\forall x \in X), (\exists y \in Y): P(x) \implies Q(y))
+        &\equiv (\exists x \in X) : (\forall y \in Y), \neg(P(x) \implies Q(y)) \\
+        &\equiv (\exists x \in X) : (\forall y \in Y), P(x) \land (\neg Q(y))
+    \end{align*}
+\end{example}
+
+The existential quantifier denotes that for at least one element $x \in X, P(x)$ is true, the following clarifies when a unique element holds the statement true.
+
+\begin{definition}[Unique, Non-existential Quantifier]
+    Let $X$ be a non-empty set and $\{P(x) : x \in X\}$ be a set of mathematical statements with domain $X$.
+
+    \begin{enumerate}
+        \item Unique Existential Quanifier: A unique existential quantifier is a symbol ``$(\exists! x \in X) :$'' where the statement $(\exists! x \in X) : P(x)$ is true when $P(x)$ is true for exactly one $x \in X$.
+
+        \item Non-existential Quantifier: A non-existential quantifier is a symbol ``$(\nexists x \in X) :$'' where the statement $(\nexists x \in X) : P(x)$ is true when $P(x)$ is true for none of $x \in X$ (or, in other words, $P(x)$ is false $\forall x$).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark} Some remarks:
+
+    \begin{enumerate}
+        \item The symbol $\exists!$ reads as "there exists a unique" or "there exists exactly one".
+
+        \item The symbol $\nexists$ reads as "there does not exist" or "there are no".
+
+        \item Note that the non-existential quantifier is the negation of the existence quantifier. Therefore, the following equivalence holds
+
+            $$
+            (\nexists x \in X) : P(x) \equiv (\forall x \in X), \neg P(x) \equiv \neg((\exists x \in X) : P(x))
+            $$
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    Let $X$ be the set of planets in the solar system and $P(x)$ be the sentence "Humans can live on planet $x$" for $x \in X$.
+
+    \begin{enumerate}
+        \item The statement $(\exists! x \in X): P(x)$ reads as "There is only one planet in the solar system where humans can live", which is unknown because humans have not tried to live on any other planets, yet.
+
+        \item The statement $(\nexists x \in X): P(x)$ reads as "There are no planets in the solar system which humans can live on" which is false because we live on the Earth which is in the solar system.
+    \end{enumerate}
 \end{example}
