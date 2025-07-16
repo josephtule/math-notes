@@ -1,0 +1,28 @@
+\section{Introduction}
+
+Two main branches of optimization: parameter optimization and optimal control theory. Parameter optimization is finite dimensional, and a function is minimized via a set of optimal parameters.  Optimal control is infinite dimensional find a trajectory $\vecb x(t)$, generally an $n$-vector, that minimizes a \textbf{functional}\index{functional}.
+
+Parameter optimization seeks to find maxima and minima using calculus. The problem is stated as:
+
+\noindent Find:
+
+$$
+\vecb x
+$$
+
+\noindent to minimize:
+
+\begin{equation}
+    J = f(\vecb x)
+\end{equation}
+
+\noindent where $J$ is a scalar cost function or index of performance and $\vecb x$ is a constant $n$-vector. The solution, $\vecb x^*$, can be found by (if $f$ has continuous partial derivatives and $x_i$ are independent)
+
+\begin{equation} \label{eqn:minimumsol}
+    \frac{\partial f}{\partial x_i} = 0, \quad i = 1,2,3,\dots,n
+\end{equation}
+
+Equation \ref{eqn:minimumsol} is a necessary condition for an extreumum (maximum or minimum, note that $f$ can be maximized by minimizing $-f$). The stationary point $\vecb x^*$ is the local minimum if the matrix $\frac{\partial^2 f}{\partial x_i \partial x_j}$ evaluated at $\vecb x^*$ is a \textbf{positive-definite} \index{positive-definite} matrix, which is a sufficient condition for a local minimum. The second partial derivatives of $f$ must also be continuous for the matrix to be well defined.
+
+
+
