@@ -1,1 +1,92 @@
 \section{Functions}
+
+Functions describe how sets transform from one to another. An output is produced when a single input is ``fed'' into it.
+
+\begin{definition} [Function]
+    A function \index{function} $f : X \to Y$ is a correspondence between two sets $X$ and $Y$ which assigns each element $x \in X$ a single element $f(x) \in Y$. In symbols, this is
+
+    $$
+    (\forall x \in X) , (\exists! y \in Y) : f(x) = y
+    $$
+\end{definition}
+
+\begin{remark} Some remarks:
+    \begin{enumerate}
+        \item $X$ and $Y$ are called the domain \index{function!domain} and codomain \index{function!codomain} of the function respectively.
+        \item $f$ is sometimes called a map, mapping, assignment, or simply as a function. Note that this is an abuse of terminology as, technically, a function is the triple $(X,Y,f)$ which each component specified.
+        \item The element $f(x) \in Y$ is called the image \index{function!image} of the element $x$ under $f$. $f(x)$ is an element while $f$ is the mapping, they are not the same.
+        \item Usually when a function is specified it is written as $f:X\to Y \text{ such that } x \mapsto f(x)$ and is read as "the element $x$ (in $X$) is mapped to the element $f(x)$ (in $Y$)".
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    Let $X = \{a,b,c\}$ and $Y = \{\clubsuit, \diamondsuit, \spadesuit, \heartsuit\}$.
+    \begin{itemize}
+        \item Consider the following functions, $f : X \to Y$ via $a \mapsto \clubsuit, b \mapsto \diamondsuit, c \mapsto diamondsuit$ and $g : X \to Y$ via $a \mapsto \clubsuit, b \mapsto \diamondsuit, c \mapsto \spadesuit$. Both $f$ and $g$ are functions because each element in $X$ is assigned to only one element in $Y$. Even for $g$ where multiple elements from $X$ map to a single element in $Y$, $g$ is still a function because there is no requirement for unique/distinct mappings. \label{ex:abcsuits_fg}
+        \item Consider the following "functions", $p : X \to Y$ via $a \mapsto \clubsuit, b \mapsto \diamondsuit, c \mapsto \spadesuit \text{ and } \heartsuit$ and $q : X \to Y$ via $a \mapsto \clubsuit, b \mapsto \diamondsuit$. Here, neither $p$ nor $q$ are functions. $p$ assigns two outputs for a single input, while $q$ does not map its entire domain, thus both violate the definitions of being a function.
+    \end{itemize}
+\end{example}
+
+Functions can be represented by pictures or by listing the pairs (input, output) in the Cartesian product $X \times Y$ (or various other representations). This is called a graph:
+
+\begin{definition}[Graph]
+    Let $f : X \to Y$ be a function between $X$ and $Y$. The graph \index{function!graph} of function $f$ is given by the collection of pairs $G_f = \{(x,f(x)):x\in X\} \subseteq X \times Y$.
+\end{definition}
+
+\subsection{Image and Preimage}
+
+For a function $f : X \to Y$, the domain and codomain are $X$ and $Y$ and the domain can be written as $X = \text{Dom}(f)$. The image \index{function!image} of a function is defined as the set $f(X) = \{f(x): x\in X\} \subseteq Y$ (Note: codomain = target set, range/image = actual output).
+
+\begin{remark}
+    This is left blank.
+\end{remark}
+
+If $Z \subseteq X$, then $f(Z)$ is the image of the subset under the mapping $f$:
+$$
+f(Z) = \{f(x):x\in Z\} \subseteq f(X).
+$$
+
+The image of a function may or may not be equal to the codomain, $f(X) \subseteq Y$. In Example \ref{ex:abcsuits_fg}, $f(X)$ and $g(X)$ are proper subsets of $Y$, if the image coincides with the codomain, $f(X) = Y$, then the function is called a surjective function or a surjection\index{function!surjective}.
+
+For every element in the image of $f$, $y \in f(X)$, it must be mapped from at least one element in the domain. This collection is called the preimage\index{function!preimage} of the element $y$ written as:
+
+$$
+f^{-1}(\{y\}) = \{x \in X : f(x) = y\}.
+$$
+
+If $y$ is not in the image of the $f$ ($y \not\in f(X)$), then $f^{-1}(\{y\}) = \varnothing$ since there are no elements in $X$ that are mapped to $y$ by $f$. If $W \subseteq Y$, $f^{-1}(W)$ is the preimage of a subset of the codomain of $f$ and is all the elements in $X$ which are mapped to any element in $W$:
+
+$$
+f^{-1}(W) = \{x \in X : f(x) \in W\} \subseteq X.
+$$
+
+\begin{example}
+    Recall the function $f:X\to Y$ in Example \ref{ex:abcsuits_fg}, we have:
+    \begin{enumerate}
+        \item $f^{-1}(\{\diamondsuit\}) = \{b,c\}$
+        \item $f^{-1}(\{\spadesuit\}) = \varnothing$
+        \item $f^{-1}(\{\diamondsuit,\clubsuit\}) = \{a,b,c\} = X$
+    \end{enumerate}
+\end{example}
+
+\begin{proposition} Let $f : X \to Y$ be a function with $A \subseteq X$ and $B,C \subseteq Y$.
+    \label{prop:157}
+    \begin{enumerate}
+        \item If $B \subseteq C$ then $f^{-1}(B) \subseteq f^{-1}(C)$. \label{prop:1571}
+        \item $f^{-1}(f(X)) = X$. \label{prop:1572}
+        \item $f(f^{-1}(Y)) = f(X) \subseteq Y$. \label{prop:1573}
+        \item $f(X \setminus A) \supseteq f(X) \setminus f(A)$. \label{prop:1574}
+        \item $f^{-1}(Y \setminus B) = X \setminus f^{-1}(B) \text{ or in other words } f^{-1}(B^c)= (f^{-1}(B))^c$. \label{prop:1575}
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    See Exercise 1.25.
+\end{proof}
+
+Proposition \ref{prop:157}(\ref{prop:1575}) says that the preimage operation preserves compliments. This is not true for image operations as strict inclusion may still occur for some functions and sets in Proposition \ref{prop:157}(\ref{prop:1574}), this proposition says that given $X$ and $A \subseteq X$ points from $X \setminus A$ can still map to points in the subset $f(A) \subseteq f(X)$ while the subset $f(X) \setminus f(A)$ do not contain any points in $f(A)$. So $f(X \setminus A) \supseteq f(X)\setminus f(A)$ the former completely contains all of the latter, but also points that may be in $f(A)$ (this is only a partial proof).
+
+
+\subsection{Injection, Surjection, Bijection}
+
+\subsection{Composite, Inverse, Restriction Functions}

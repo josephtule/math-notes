@@ -15,9 +15,11 @@
 %                       MATH PACKAGES
 % --------------------------------------------------------------
 \usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
-% \usepackage{mathrsfs}
-\usepackage{newtxtext,newtxmath}
+% \usepackage{mathrsfs} % cannot be used with the following line (standard math font)
+\usepackage{newtxtext,newtxmath} % cannot be used with the previous line (springer math font)
 \usepackage{esint} % extended integrals
+\usepackage{epsdice}
+\newcommand\dice[1]{\vcenter{\hbox{\epsdice{#1}}}}
 
 % --------------------------------------------------------------
 %                       GRAPHICS & COLOR

@@ -8,6 +8,7 @@
         "codegray",
         "codegreen",
         "codepurple",
+        "codomain",
         "Hohmann",
         "Infimum",
         "Johar",
@@ -15,11 +16,13 @@
         "keywordstyle",
         "numbersep",
         "numberstyle",
+        "Preimage",
         "showspaces",
         "showstringspaces",
         "showtabs",
         "stringstyle",
         "Supremum",
+        "surjective",
         "tabsize"
     ],
     "cSpell.ignoreWords": [
