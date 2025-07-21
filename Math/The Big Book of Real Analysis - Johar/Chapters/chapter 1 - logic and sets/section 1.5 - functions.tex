@@ -84,9 +84,107 @@ $$
     See Exercise 1.25.
 \end{proof}
 
-Proposition \ref{prop:157}(\ref{prop:1575}) says that the preimage operation preserves compliments. This is not true for image operations as strict inclusion may still occur for some functions and sets in Proposition \ref{prop:157}(\ref{prop:1574}), this proposition says that given $X$ and $A \subseteq X$ points from $X \setminus A$ can still map to points in the subset $f(A) \subseteq f(X)$ while the subset $f(X) \setminus f(A)$ do not contain any points in $f(A)$. So $f(X \setminus A) \supseteq f(X)\setminus f(A)$ the former completely contains all of the latter, but also points that may be in $f(A)$ (this is only a partial proof).
+Proposition \ref{prop:157}(\ref{prop:1575}) says that the preimage operation preserves complements. This is not true for image operations as strict inclusion may still occur for some functions and sets in Proposition \ref{prop:157}(\ref{prop:1574}), this proposition says that given $X$ and $A \subseteq X$ points from $X \setminus A$ can still map to points in the subset $f(A) \subseteq f(X)$ while the subset $f(X) \setminus f(A)$ do not contain any points in $f(A)$. So $f(X \setminus A) \supseteq f(X)\setminus f(A)$ the former completely contains all of the latter, but also points that may be in $f(A)$ (this is only a partial proof).
+
+\begin{proposition} Let $f : X \to Y$ be a function, $V_i \subseteq X$ be a collection of subsets of $X$ for reach $i \in I$, and $W_j \subseteq Y$ be a collection of subsets of $Y$ for each $j \in J$ where $I$ and $J$ are some indexing sets. Then:
+
+    \begin{enumerate}
+        \item $f(\bigcap_{i \in I} V_i) \subseteq \bigcap_{i \in I} f(V_i)$
+        \item $f(\bigcup_{i \in I} V_i) = \bigcup_{i \in I} f(V_i)$
+        \item $f^{-1}(\bigcap_{j \in J} W_j) \subseteq \bigcap_{j \in J} f^{-1}(W_j)$
+        \item $f^{-1}(\bigcup_{j \in J} W_j) \subseteq \bigcup_{j \in J} f^{-1}(W_j)$
+    \end{enumerate}
+
+    \begin{proof} Only prove the first two.
+        \begin{enumerate}
+            \item Pick $y \in f(\bigcap_{i \in I})$. Then, by definition:
+                \begin{align*}
+                    &\exists x \in \bigcap_{i\in I} V_i \text{ such that } f(x) = y
+                    &&\implies \exists x \in V_i \text{ for all } i \in I \text{ such that } f(x) = y \\
+                    & &&\implies y \in f(V_i) \text{ for all } i \in I \\
+                    & &&\implies y \in \bigcap_{i\in I} f(V_i),
+                \end{align*}
+                \noindent and since $y$ is arbitrary, we obtain the inclusion $f(\bigcap_{i \in I} V_i) \subseteq \bigcap_{i \in I} f(V_i)$. (Proof method: morph LHS into the RHS, this only proves inclusion, not the reverse inclusion in order to get equality.)
+            \item Use double inclusion to prove this equality.
+
+                ($\subseteq$):\quad Pick an element $y \in f(\bigcup_{i \in I} V_i)$. Then, by definition:
+                \begin{align*}
+                    \exists x \in \bigcup_{i\in I} V_i \text{ such that } f(x) = y
+                    & &&\implies \exists i \in I \text{ such that } x \in V_i \text{ with } f(x) = y \\
+                    & &&\implies y \in f(V_i) \text{ for some } i \in I \\
+                    & &&\implies y \in \bigcup_{i\in I} f(V_i),
+                \end{align*}
+
+                \noindent which proves the first inclusion $f(\bigcup_{i \in I} V_i) \subseteq \bigcup_{i \in I} f(V_i)$.
+
+                ($\supseteq$):\quad Pick an arbitrary $y \in \bigcup_{i \in I} f(V_i)$. Then, by definition:
+
+                \begin{align*}
+                    \exists i \in I \text{  s.t. } y = f(V_i)
+                    & &&\implies \exists i \in I \text{  s.t. } \exists x \in V_i \text{  with } f(x) = y \\
+                    & &&\implies \exists x \in \bigcup_{i \in I} V_i \text{  s.t. } f(x) = y \\
+                    & &&\implies y \in f\left(\bigcup_{i \in I} V_i\right),
+                \end{align*}
+                \noindent which shows the reverse inclusion $f(\bigcup_{i \in I} V_i) \supseteq \bigcup_{i \in I} f(V_i)$.
+        \end{enumerate}
+        The two inclusions results in the equality of the sets.
+    \end{proof}
+    \label{prop:158}
+\end{proposition}
+
+\begin{remark}
+    Note that in Proposition \ref{prop:158}, the preimage operation $f^{-1}$ preserves union and intersection. However, the image operation $f$ only preserves unions. Intersections may not be preserved under $f$.
+
+    An example is the function $f : X \to Y$ from Example \ref{ex:abcsuits_fg}. If we set $U = \{b\}$ and $V = \{c\}$, we immediately get $U \cap V = \varnothing$ and thus $f(U \cap V) = f(\varnothing) = \varnothing$. However, $f(U) = f(V) = \{\diamondsuit\}$ so $f(U) \cap f(V) = \{\diamondsuit\} \neq \varnothing$. So this is an example for which $f(U \cap V) \subsetneq f(U) \cap f(V)$.
+\end{remark}
+
+In fact, the preimage operations also satisfy the following:
+
+\begin{proposition} Let $f : X \to Y$ be a function and $A, B \subseteq Y$. Then:
+\begin{enumerate}
+    \item $f^{-1}(B \setminus A) = f^{-1}(B) \setminus f^{-1}(A)$
+    \item $f^{-1}(B \Delta A) = f^{-1}(B) \Delta f^{-1}(A)$
+\end{enumerate}
+\end{proposition}
+
+Thus, the preimage operations preserves (finite and arbitrary) union, (finite and arbitrary) intersection, complements, set difference, and symmetric set difference. On the other hand, the image operations do not necessarily satisfy this.
 
 
 \subsection{Injection, Surjection, Bijection}
+If each element in the image of a function has exactly one preimage, then we call the function an injective function or an injection. In other words, an injective function maps distinct elements in the domain to distinct elements in the codomain.
+
+\begin{example}
+    $f : X \to Y$ in Example \ref{ex:abcsuits_fg} is not injective because the diamond suit has two possible preimages $b$ and $c$. On the other hand, $g$ is injective as each element in the image has exactly one preimage.
+\end{example}
+
+\begin{definition}[Injection, Surjection, Bijection] Let $f: X \to Y$ be a function.
+    (Note: if a $y \in Y$ does not have a preimage it is not in the image $f(X)$, only in the codomain.)
+
+    \begin{enumerate}
+        \item The function $f$ is called an injective\index{function!injective} function or an injection if for each element $y \in f(X)$, there exists exactly one element $x \in X$ such that $f(x) = y$. In other words, whenever $f(x) = f(z)$, necessarily $x = z$. In symbols:
+        $$
+        (\forall y \in f(X)), (\exists! x \in X) : f(x) = y
+        $$
+
+        \item The function $f$ is called a surjective\index{function!surjective} function or a surjection if for every $y \in Y$, there exists an $x \in X$ such that $f(x) = y$. In other words, the image of the function coincides with the codomain, namely $f(X) = Y$. In symbols:
+        $$
+        (\forall y \in Y), (\exists x \in X) : f(x) = y
+        $$
+
+        \item The function $f$ is called a bijective\index{function!bijective} function or a bijection if it is both injective and surjective. In other words, every element in the codomain is mapped from exactly one element in the domain via $f$. In symbols:
+        $$
+        (\forall y \in Y), (\exists! x \in X) : f(x) = y
+        $$
+    \end{enumerate}
+\end{definition}
+
+\begin{remark} Let $f: X \to Y$ be a function. 
+\begin{enumerate}
+    \item If $f$ is an injection, we say $f$ injects into $Y$. $f$ is also called a one-to-one\index{function!one-to-one} function.
+    \item If $f$ is a surjection, we say $f$ surjects onto $Y$. $f$ is also called an onto\index{function!onto} function.
+    \item If $f$ is a bijection, we call $f$ a one-to-one correspondence\index{function!one-to-one correspondence} between $X$ and $Y$.
+\end{enumerate}
+\noindent Note: the one-to-one terminology is usually not used as remark 1 and 3 can be confused.
+\end{remark}
 
 \subsection{Composite, Inverse, Restriction Functions}

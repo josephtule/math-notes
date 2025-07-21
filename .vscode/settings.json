@@ -2,6 +2,7 @@
     "cSpell.words": [
         "Arclength",
         "basicstyle",
+        "bijective",
         "breakatwhitespace",
         "breaklines",
         "captionpos",
@@ -11,6 +12,7 @@
         "codomain",
         "Hohmann",
         "Infimum",
+        "injective",
         "Johar",
         "keepspaces",
         "keywordstyle",
@@ -23,6 +25,7 @@
         "stringstyle",
         "Supremum",
         "surjective",
+        "surjects",
         "tabsize"
     ],
     "cSpell.ignoreWords": [
