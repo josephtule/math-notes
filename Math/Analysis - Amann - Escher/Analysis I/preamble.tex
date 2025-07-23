@@ -1,0 +1,156 @@
+% !TEX root = ./main.tex
+% --------------------------------------------------------------
+%                  ENCODING AND GEOMETRY
+% --------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{indentfirst} % TODO: keep or remove?
+\usepackage{geometry}
+\geometry{margin=1in}
+% \geometry{a4paper, total={6in, 8in}}
+
+% \setlength{\parskip}{0.5em}
+
+% --------------------------------------------------------------
+%                       MATH PACKAGES
+% --------------------------------------------------------------
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+% \usepackage{mathrsfs} % cannot be used with the following line (standard math font)
+\usepackage{newtxtext,newtxmath} % cannot be used with the previous line (springer math font)
+\usepackage{esint} % extended integrals
+\usepackage{epsdice}
+\newcommand\dice[1]{\vcenter{\hbox{\epsdice{#1}}}}
+
+% --------------------------------------------------------------
+%                       GRAPHICS & COLOR
+% --------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,decorations.pathmorphing,arrows,calc,angles,quotes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% --------------------------------------------------------------
+%                      LISTS AND STYLING
+% --------------------------------------------------------------
+\usepackage{enumitem}
+\setlist{leftmargin=2em}
+\usepackage[english]{babel}
+\usepackage[autostyle, english=american]{csquotes}
+\MakeOuterQuote{"}
+% NOTE: use ``'' over "", less errors, but "" ensures quotes are closed
+
+% --------------------------------------------------------------
+%                   HYPERLINKS AND REFERENCES
+% --------------------------------------------------------------
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,       % Internal links (e.g., TOC, equations)
+    citecolor=black,       % Citation links
+    urlcolor=blue          % External links
+}
+\usepackage{makeidx}
+
+% --------------------------------------------------------------
+%                    BIBLIOGRAPHY SETUP
+% --------------------------------------------------------------
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=nyt
+]{biblatex}
+\addbibresource{Reference.bib}
+
+% --------------------------------------------------------------
+%                   THEOREM ENVIRONMENTS
+% --------------------------------------------------------------
+\theoremstyle{plain}
+% NOTE: change depending on needs (chapter or section)
+% \newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+% NOTE: \newtheorem{type}{Name}[number]
+
+% NOTE: choose remark style
+% \theoremstyle{remark}
+% \newtheorem*{remark}{Remark}
+
+% --------------------------------------------------------------
+%                        CUSTOM COMMANDS
+% --------------------------------------------------------------
+% Sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% Vectors and formatting
+\newcommand{\vecb}[1]{\boldsymbol{#1}}
+\newcommand{\unitv}[1]{\hat{\boldsymbol{#1}}}
+\newcommand{\norm}[2]{\left\Vert {#1} \right\Vert_{#2}}
+\newcommand{\tbf}[1]{\textbf{#1}}
+
+% Operators
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\image}{\operatorname{Im}}
+
+% Matrices
+\newcommand{\matt}[1]{
+    \begin{bmatrix}#1
+\end{bmatrix}}
+
+% Align environment for equations
+\newenvironment{aequation}
+{
+    \begin{equation}
+        \begin{aligned}
+        }
+        {
+        \end{aligned}
+    \end{equation}
+}
+
+\newcommand{\Interval}[4]{%
+    \tikz{%
+        \coordinate [label={center:$#1$},label=below:$\rule{0pt}{.35cm}#2$] (a) at (0,0);
+        \coordinate [label={center:$#3$},label=below:$\rule{0pt}{.35cm}#4$] (b) at (1.6,0);
+        \draw[-{latex},] decorate[decoration=zigzag] {(a)--(b)} (-.4,0)--(2,0);
+    }
+}
+
+\newcommand\interval[4]{%
+    \begin{tikzpicture}[text height=1ex]%
+        \draw[<-] (0,0) -- (1,0);
+        \draw[{#3-#4}] (1,0) node[label=below:{#1}] {} -- (2,0) node[label=below:{#2}] {};
+        \draw[->] (2,0) -- (3,0);
+    \end{tikzpicture}
+}
+
+\newcommand\intervalinline[4]{%
+    \raisebox{10pt}{% Adjust vertical alignment if needed
+        \begin{tikzpicture}[baseline={(0,0.5ex)}, text height=1ex, text depth=0.25ex]
+            \draw[<-] (0,0) -- (1,0);
+            \draw[{#3}-{#4}] (1,0) node[label=below:{#1}] {} -- (2,0) node[label=below:{#2}] {};
+            \draw[->] (2,0) -- (3,0);
+        \end{tikzpicture}%
+    }%
+}
+
+\makeindex

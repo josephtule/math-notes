@@ -1,0 +1,140 @@
+\section{Fundamentals of Logic}
+
+Symbolic logic\index{logic} is about \textbf{statements}\index{logic!statements} which can be either true (T) or false (F), not both or in between.
+A statement $A$ can have a \textbf{negation}\index{negation} $\neg A$ (`not $A$') which is defined as: $\neg A$ true if $A$ false.
+A truth table can be used to show this:
+
+$$
+\begin{array}{|c||c|c|}
+    \hline
+    A & T & F \\
+    \hline{}
+    \neg A & F & T \\
+    \hline
+\end{array}
+$$
+
+Two statements $A$ and $B$ can be combined using \textbf{conjunction}\index{conjunction} or \textbf{disjunction}\index{disjunction} to make new ones.
+The statement $A \land B$ (`$A$ and $B$') is true when both $A$ and $B$ are true.
+The statement $A \lor B$ (`$A$ or $B$') is true when either $A$ or $B$ or both are true (inclusive or) and is false only when both are false.
+Refer to the following truth table:
+
+$$
+\begin{array}{|c|c||c|c|}
+    \hline
+    A & B & A \land B & A \lor B \\
+    \hline
+    T & T & T & T \\
+    T & F & F & T \\
+    F & T & F & T \\
+    F & F & F & F \\
+    \hline
+\end{array}
+$$
+
+If $E(x)$ is a statement where $x$ is replaced by an object (member, thing) of a specified class (collection, universe), then $E$ is a \textbf{property}\index{property}.
+`$x$ has property $E$' is equivalent to `$E(x)$ is true'.
+If $x$ is a member (an \textbf{element}\index{element}) of a class $X$ we write $x \in X$ otherwise $x \not\in X$.
+Then,
+
+$$
+\{x \in X : E(x)\}
+$$
+
+\noindent is the class of all elements $x$ of the collection $X$ that have the property $E$.
+
+The \textbf{quantifier}\index{quantifier} $\exists$ denotes existence and is read `there exists'.
+The expression
+
+$$
+\exists x \in X : E(x)
+$$
+
+\noindent says `There is (at least) one object $x$ in (the class) $X$ which has the property $E$'.
+The unique quantifier $\exists!$ says that there is only one (a unique) object.
+
+The quantifier $\forall$ denotes `for all' or `for each' object in a collection.
+The expression
+
+\begin{equation}
+    \forall x \in X : E(x)
+\end{equation}
+
+\noindent says `For each $x \in X$ the statement $E(x)$ is true'.
+This can also be written as
+
+\begin{equation}
+    E(x), \quad \forall x \in X
+\end{equation}
+
+\noindent which says `The property $E(x)$ is true for all $x$ in $X$'.
+Sometimes the quantifier is left out
+
+\begin{equation}
+    E(x), \quad x \in X
+\end{equation}
+
+The symbol $:=$ means `is defined by'.
+Thus,
+
+$$
+a := b
+$$
+
+\noindent says `the object (or symbol) $a$ is defined by the object (or expression) $b$'.
+Of course $a = b$ means $a$ and $b$ are equal.
+
+\begin{example} Let $A$ and $B$ be statements, $X$ and $Y$ be classes of objects, and $E$ is a property. Truth tables can verify the following statements:
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $\neg\neg A := \neg(\neg A) = A$
+            $$
+            \begin{array}{|c||c|c|}
+                \hline
+                A & \neg A & \neg\neg(A) \\
+                \hline
+                T & F & T \\
+                F & T & F \\
+                \hline
+            \end{array}
+            $$
+        \item $\neg(A \land B) = (\neg A) \lor (\neg B)$ (De Morgan's Law 1)
+            $$
+            \begin{array}{|c|c||c|c|c|}
+                \hline
+                A & B & A \land B & \neg (A \land B) & (\neg A) \lor (\neg B) \\
+                \hline
+                T & T & T         & F                & F \\
+                T & F & F         & T                & T \\
+                F & T & F         & T                & T \\
+                F & F & F         & T                & T \\
+                \hline
+            \end{array}
+            $$
+        \item $\neg(A \lor B) = (\neg A) \land (\neg B)$ (De Morgan's Law 2)
+            $$
+            \begin{array}{|c|c||c|c|c|}
+                \hline
+                A & B & A \lor B & \neg (A \lor B) & (\neg A) \land(\neg B) \\
+                \hline
+                T & T & T         & F                & F \\
+                T & F & T         & F                & F \\
+                F & T & T         & F                & F \\
+                F & F & F         & T                & T \\
+                \hline
+            \end{array}
+            $$
+        \item $\neg (\forall x \in X : E(x)) = (\exists x \in X : \neg E(x))$ (for example: the negation of `everyone wears glasses' is `at least one person does not wear glasses')
+        \item $\neg (\exists x \in X : E(x)) = (\forall x \in X : \neg E(x))$ (for example: the negation of `there is at least one car on the road that is red' is `there are no cars on the road that is read')
+        \item $\neg (\forall x \in X : (\exists y \in Y : E(x,y))) = (\exists x \in X : (\forall y \in Y : \neg E(x,y)))$ (for example: the negation of `every person has something in at least one pocket' is `there is at least one person that has whose pockets are all empty'. Here X is the collection of people, Y is the collection of pockets on a person, and E is the property that the pocket is occupied and depends on the person and the pocket.)
+        \item $\neg (\exists x \in X : (\forall y \in Y : E(x,y))) = (\forall x \in X : (\exists y \in Y : \neg E(x,y)))$ (for example: the negation of `there is at least one car with every window open' is `in the collection of all cars there is at least one window that is closed')
+    \end{enumerate}
+\end{example}
+
+\begin{remark}
+    \begin{enumerate}[label=(\alph*)]
+        \item Parenthesis keep the statements exact but aren't always used; similarly, the membership symbol is not always used. For example: $\forall x \exists y : E(x,y)$ is still valid and says `For all $x$ there is at least one $y$ such that $E(x,y)$ is true', thus $y$ depends on $x$. Another example: $\exists x \forall y : E(x,y)$ which says `there is at least one $x$ with every $y$ such that $E(x,y)$ is true' it is sufficient to find one $y$ which is true for all $x$. For example, if $E(x,y)$ is the statement `reader $x$ of this book find the concept of $y$ to be trivial' then the first statement is: `Each reader of this book finds at least one concept that is trivial' and the second statement is `there is at least one statement that every reader finds trivial.'
+        \item The quantifiers $\exists$ and $\forall$ as well as the logical `and' and `or' are mechanically interchanged in negation without changing order while the statements are negated.
+    \end{enumerate}
+\end{remark}
+
