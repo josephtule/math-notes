@@ -1,0 +1,228 @@
+\section{Sets}
+
+\subsection{Elementary Sets}
+
+If $X$ and $Y$ are \textbf{sets}\index{set}, then $X \subseteq Y$ (`$X$ is a \textbf{subset}\index{set!subset} of $Y$') means that each element in $X$ is contained in $Y$: $\forall x \in X : x \in Y$. Sometimes written as $Y \supseteq X$ as well. Equality of sets defined as
+
+$$
+X = Y :\iff (X \subseteq Y) \land (Y \subseteq X)
+$$
+
+The statements
+
+\begin{align*}
+    X \subseteq X & && \text{\textbf{(reflexivity)}\index{set!reflexivity}}\\
+    (X \subseteq Y) \land (Y \subseteq Z) \implies (X \subseteq Z) & && \text{\textbf{(transitivity)}\index{set!transitivity}}
+\end{align*}
+
+\noindent are true. If $X \setin Y$ and $X \not\in Y$ then $X$ is a \tbf{proper subset}\index{set!proper subset} of $Y$ denoted with $X \subset Y$. If $X$ is a set and $E$ a property then $\{x \in X: E(x)\}$ is a subset of $X$ with elements that satisfy $E(x)$. The empty set of $X$ is defined as
+
+$$
+\varnothing_X := \{x \in X : x \neq x\}.
+$$
+
+\begin{remark}
+    \begin{enumerate}[label=(\alph*)]
+        \item Let $E$ be a property, then $x \in \varnothing_X \implies E(x)$ is true for each $x \in X$ (`The empty set possesses every property').
+            \begin{proof}
+                From Equation \ref{eqn:implies definition} we have
+                $$
+                (x \in \varnothing_X \implies E(x)) = \neg(x \in \vno_X) \lor E(x)
+                $$
+                The negation $\neg (x \in \vno_X)$ is true for each $x \in X$.
+            \end{proof}
+        \item If $X$ and $Y$ are sets, then $\vno_X = \vno_Y$, i.e., \tbf{empty set}\index{set!empty set} is unique and denoted as $\vno$ and is a subset of any (every) set.
+            \begin{proof}
+                From the first remark, $x \in \vno_X \implies x \in \vno_Y$, hence $\vno_X \setin \vno_Y$, by symmetry $\vno_Y \setin \vno_X$, thus $\vno_X = \vno_Y$.
+            \end{proof}
+    \end{enumerate}
+\end{remark}
+
+The set containing the single element $x$ is denoted $\{x\}$ (a singleton). The set containing $a, b, ..., *, \odot$ is written $\{a,b,...,*,\odot\}$.
+
+\subsection{The Power Set}
+$X$ is a set, its \tbf{power set}\index{set!power set} $\mathcal{P}(X)$ whose elements are the subsets of $X$, sometimes it is written as $2^X$. The following are true:
+\begin{align}
+    \vno \in \mathcal P(X), X \in \mathcal P(X). \\
+    x \in X \iff \{x\} \in \mathcal P(X). \\
+    Y \setin X \iff Y \in \mathcal P(X).
+\end{align}
+\noindent $\mathcal P$ is never empty.
+
+\begin{example}
+    \begin{enumerate}[label=(\alph*)]
+        \item $\mathcal{P}(\vno) = \{\vno\}$, $\mathcal P(\{\vno\}) = \{\vno, \{vno\}\}$.
+        \item $\mathcal P(\{*,\odot\}) = \{\vno, \{*\}, \{\odot\},\{*,\odot\}\}$
+    \end{enumerate}
+\end{example}
+
+\subsection{Complement, Intersection, and Union}
+
+Let $A$ and $B$ be subsets of $X$. Then
+$$
+A \setminus B := \{x \in X : (x \in A) \land (x \not\in B)\}
+$$
+\noindent is the \tbf{relative complement}\index{set!relative complement} of $B$ in $A$. When $X$ is clear from context, the \tbf{complement}\index{set!complement} of $A$ in $X$ is
+$$
+A^c := X \setminus A
+$$
+
+The set
+$$
+A \cap B := \{x \in X : (x \in A) \land (x \in B)\}
+$$
+\noindent is called the \tbf{intersection}\index{set!intersection} of $A$ and $B$. If they have no elements in common $A \cap B = \vno$ and are \tbf{disjoint}\index{set!disjoint}. $A \setminus B = A \cap B^c$. The set
+$$
+A \cup B := \{x \in X : (x \in A) \lor (x \in B)\}
+$$
+\noindent is called the \tbf{union}\index{set!union} of $A$ and $B$.
+
+\begin{remark}
+    Useful to use \tbf{Venn Diagrams}\indent{set!Venn diagrams}. They cannot be used as proofs but help build intuition and hints at proofs.
+\end{remark}
+
+\begin{proposition} Let $X$, $Y$, and $Z$ be subsets of a set.
+
+    \begin{enumerate}[label=(\roman*)]
+        \item $X \cup Y = Y \cup X,\; X \cap Y = Y \cap X$. (commutativity)
+        \item $X \cup (Y \cup Z) = (X \cup Y) \cup Z,\; X \cap (Y \cap Z) = (X \cap Y) \cap Z$. (associativity)
+        \item $X \cup (Y \cap Z) = (X \cup Y) \cap (X \cup Z), \\
+            X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$. (distributivity)
+        \item $X \setin Y \iff X \cup Y = Y \iff X \cap Y = X$
+    \end{enumerate}
+
+\end{proposition}
+
+\subsection{Products}
+
+An \tbf{ordered pair}\index{ordered pair} is made of two elements $a$ and $b$ to make $(a,b)$. Equality is defined as
+$$
+(a,b) = (c,d) :\iff (a = c) \land (b = d)
+$$
+\noindent The objects $a$ and $b$ are the first and second \tbf{components}\index{ordered pair!components}. For $x = (a,b)$, we define
+$$
+\text{pr}_1(x) := a,\quad \text{pr}_2 := b
+$$
+\noindent generally for any sized ordered sets, $\text{pr}_j(x)$ is the $j^\text{th}$ \tbf{projection}\index{projection} of $x$.
+
+If $X$ and $Y$ are sets, then the \tbf{Cartesian product}\index{set!Cartesian product} $X \times Y$ is the set of all ordered pairs $(x,y)$ with $x \in X$ and $y \in Y$.
+
+\begin{example}[also a remark]
+    \begin{enumerate}[label=(\alph*)]
+        \item For $X := \{a,b\}$ and $Y := \{c,d,e\}$ we have
+            $$
+            X \times Y = \{(a,c),(a,d),(a,e),(b,c),(b,d),(b,e)\}
+            $$
+        \item Useful to have a graphical representation. If $X$ and $Y$ are number lines, their Cartesian product can be seen as a rectangle. Or using the previous example, a table can be made with $X$ and $Y$ as below
+            \begin{center}
+                \begin{tabular}{c|ccc}
+                    \diagbox{$X$}{$Y$} & $c$ & $d$ & $e$ \\
+                    \hline
+                    $a$ & $(a,c)$ & $(a,d)$ & $(a,e)$ \\
+                    $b$ & $(b,c)$ & $(b,d)$ & $(b,e)$ \\
+                \end{tabular}
+            \end{center}
+
+    \end{enumerate}
+\end{example}
+
+\begin{proposition}
+    Let $X$ and $Y$ be sets.
+
+    \begin{enumerate}[label=(\roman*)]
+        \item $X \times Y = \vno \iff (X = \vno) \lor (Y = \vno)$.
+        \item \textit{In general}: $X \times Y \neq Y \times X$.
+    \end{enumerate}
+
+    \begin{proof}
+        \begin{enumerate}[label=(\roman*)]
+            \item Need to prove forward statement ($\implies$) and backwards (converse, $\converse$).
+
+                `$\implies$': Using contradiction. Suppose $X \times Y = \vno$ is true and $(X = \vno) \lor (Y = \vno)$ is false. By Example \ref{ex:1.1}\ref{ex:1.1(c)} (de Morgan's Law 2), the negation of the second statement is $\neg((X = \vno) \lor (Y = \vno)) = (X \neq \vno) \land (Y \neq \vno)$ and is considered true (taking the non-negated statement as true). So there are $x \in X$ and $y \in Y$. But then $(x,y) \in X \times Y$, contradicting $X \times Y = \vno$. Thus $X \times Y \implies (X = \vno) \lor (Y = \vno)$.
+
+                `$\converse$' Prove using the contrapositive of
+                $$
+                (X = \vno) \lor (Y = \vno) \implies X \times Y = \vno.
+                $$
+                \noindent Which is
+                \begin{align*}
+                    \neg(X \times Y = \vno) &\implies \neg((X = \vno) \lor (Y = \vno)) \\
+                    (X \times Y \neq \vno) &\implies (X \neq \vno) \land (Y \neq \vno)
+                \end{align*}
+                \noindent If $X \times Y \neq \vno$ then there is some $(x,y) \in X \times Y$ which implies that $X \neq \vno$ and $Y \neq \vno$.
+
+                Thus, $(X = \vno) \lor (Y = \vno) \implies X \times Y = \vno.$
+                
+                \item See Exercise 4.
+        \end{enumerate}
+    \end{proof}
+\end{proposition}
+
+The product of three sets is defined by
+$$
+X \times Y \times Z := (X \times Y) \times Z
+$$
+
+Repeating this to define the product of $n$ sets:
+$$
+X_1 \times \cdots X_n := (X_1 \times \cdots \times X_{n-1}) \times X_n
+$$
+
+For $x \in X_1 \times \cdots X_n$ we write $(x_1,\dots,x_n)$ instead of $(\dots((x_1,x_2),x_3),...x_n)$ and call $x_j$ the $j^\text{th}$ component of $x$ for $1 \leq j \leq n$ and is equal to $\text{pr}_j(x)$. We can also write
+$$
+X_1 \times \cdots X_n = \prod_{j=1}^n X_j\quad.
+$$
+\noindent If all the factors in the product are the same, $X_j = X$ for $j = 1,...,n$ then the product is written $X^n$.
+
+\subsection{Families of Sets}
+
+Let $\mathsf{A}$ be a nonempty set, for each $\alpha \in \mathsf{A}$, let $A_\alpha$ be a set. Then $\{A_\alpha : \alpha \in \mathsf{A}\}$ is called a \tbf{family of sets}\index{set!family of sets} and $\mathsf{A}$ is an \tbf{index set}\index{set!index set} for this family. (Notation here is a little weird, typically $\{ A_i :i \in \mathsf{I}\}$ is used) $A_\alpha$ does not need to be nonempty for each index but a family of sets is never empty.
+
+Let $X$ be a set and $\mathcal{A} := \{A_\alpha : a \in \mathsf{A}\}$ a family of subsets of $X$. Generalizing the above concepts we define the intersection and union of this family by (Note: Germans use `;' as such that as well. Americans just use one `:' and use commas to separate the `such that' quanifiers and conditions)
+$$
+\bigcap_\alpha A_\alpha := 
+\{x \in X: \forall \alpha \in \mathsf{A}, x \in A_\alpha\}   
+= \bigcap \mathcal{A},
+$$
+and 
+$$
+\bigcup_\alpha A_\alpha := \{x \in X: \exists \alpha \in \mathsf{A}, x \in A_\alpha\}
+= \bigcup \mathcal{A}.
+$$
+These are both subsets of $X$. If $\mathcal{A}$ is a finite family of sets, then it can be indexed by finitely many natural numbers $\{0,1,...,n\}$: $\mathcal{A} \{A_j: j=0,..,n\}$ and the union
+
+\begin{proposition} Let $\{A_\alpha : \alpha \in \mathsf{A}\}$ and $\{B_\beta : \beta \in \mathsf{B}\}$ be families of subsets of $X$.
+    \begin{enumerate}[label=(\roman*)]
+        \item $\left(\bigcap_\alpha A_\alpha\right) \cap \left(\bigcap_\beta B_\beta\right) = \bigcap_{(\alpha,\beta)} A_\alpha \cap B_\beta,\\
+        \left(\bigcup_\alpha A_\alpha\right) \cup \left(\bigcup_\beta B_\beta\right) = \bigcup_{(\alpha,\beta)} A_\alpha \cup B_\beta$. (associativity)
+
+        \item $\left(\bigcap_\alpha A_\alpha\right) \cup \left(\bigcap_\beta B_\beta\right) = \bigcap_{(\alpha,\beta)} A_\alpha \cup B_\beta,\\
+        \left(\bigcup_\alpha A_\alpha\right) \cap \left(\bigcup_\beta B_\beta\right) = \bigcup_{(\alpha,\beta)} A_\alpha \cap B_\beta$. (distributivity)
+
+        \item $\left(\bigcap_\alpha A_\alpha\right)^c = \bigcup_\alpha A_\alpha^c,\\
+        \left(\bigcup_\alpha A_\alpha\right)^c = \bigcap_\alpha A_\alpha^c$. (de Morgan's laws)
+    \end{enumerate}
+
+    Here, $(\alpha, \beta)$ runs through the index set $\mathsf{A} \times \mathsf{B}$.
+
+    \begin{proof}
+        Follows easily from definitions. For (iii), see Examples 1.1.1.
+    \end{proof}
+\end{proposition}
+
+\begin{remark}
+    Insert `philosophy of sets' and `what is a set' here. \textbf{Axioms}\index{axioms} are rules that assumed to be fundamentally true and need no/cannot be proved.
+\end{remark}
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+    \item TODO: do this
+    \item TODO: do this
+    \item TODO: do this
+    \item TODO: do this
+    \item TODO: do this
+    \item TODO: do this
+    \item TODO: do this
+    \item TODO: do this
+\end{enumerate}

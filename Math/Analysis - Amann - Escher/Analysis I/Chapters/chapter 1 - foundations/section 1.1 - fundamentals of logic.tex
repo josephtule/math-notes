@@ -84,7 +84,7 @@ $$
 \noindent says `the object (or symbol) $a$ is defined by the object (or expression) $b$'.
 Of course $a = b$ means $a$ and $b$ are equal.
 
-\begin{example} Let $A$ and $B$ be statements, $X$ and $Y$ be classes of objects, and $E$ is a property. Truth tables can verify the following statements:
+\begin{example}\label{ex:1.1} Let $A$ and $B$ be statements, $X$ and $Y$ be classes of objects, and $E$ is a property. Truth tables can verify the following statements:
 
     \begin{enumerate}[label=(\alph*)]
         \item $\neg\neg A := \neg(\neg A) = A$
@@ -98,7 +98,7 @@ Of course $a = b$ means $a$ and $b$ are equal.
                 \hline
             \end{array}
             $$
-        \item $\neg(A \land B) = (\neg A) \lor (\neg B)$ (De Morgan's Law 1)
+        \item $\neg(A \land B) = (\neg A) \lor (\neg B)$ (de Morgan's Law 1)
             $$
             \begin{array}{|c|c||c|c|c|}
                 \hline
@@ -111,7 +111,7 @@ Of course $a = b$ means $a$ and $b$ are equal.
                 \hline
             \end{array}
             $$
-        \item $\neg(A \lor B) = (\neg A) \land (\neg B)$ (De Morgan's Law 2)
+        \item \label{ex:1.1(c)} $\neg(A \lor B) = (\neg A) \land (\neg B)$ (De Morgan's Law 2)
             $$
             \begin{array}{|c|c||c|c|c|}
                 \hline
@@ -138,3 +138,85 @@ Of course $a = b$ means $a$ and $b$ are equal.
     \end{enumerate}
 \end{remark}
 
+Let $A$ and $B$ be statements, the \textbf{implication}\index{implication} $A \implies B$, (`$A$ implies $B$') is defined as:
+
+\begin{equation}\label{eqn:implies definition}
+    (A \implies B) := (\neg A) \lor B
+\end{equation}
+
+Thus $A \implies B$ is false if $A$ is true and $B$ is false, and true in all other cases. In other words, it is true when $A$ and $B$ are both true, or when $A$ is false (independent of whether $B$ is true or false) meaning a true statement cannot imply a false statement, also a false statement implies any statement. Common to say `To prove $B$ it \textbf{suffices} to prove $A$' or `$B$ is \textbf{necessary} for $A$ to be true', in other words, $A$ is a \textbf{sufficient condition}\index{sufficient condition} for $B$ and $B$ is a \textbf{necessary condition}\index{necessary condition} for $A$.
+
+The \textbf{equivalence}\index{equivalence} $A \iff B$ (`$A$ and $B$ are equivalent') of the statements is defined by:
+
+$$
+(A \iff B) := (A \implies B) \land (B \implies A)
+$$
+
+$$
+\begin{array}{|c|c||c|c|c|}
+    \hline
+    A & B & A \implies B & B \implies A & A \iff B \\
+    \hline
+    T & T & T & T & T \\
+    T & F & F & T & F \\
+    F & T & T & F & F \\
+    F & F & T & T & T \\
+    \hline
+\end{array}
+$$
+
+\noindent $B \implies A$ is the \textbf{converse}\index{converse} of $A \implies B$, and $A$ is a \textbf{necessary and sufficient}\index{necesssary and sufficient} condition for B (or vice versa), another way to express this is to say `$A$ is true \textbf{if and only if}\index{if and only if (iff)} (iff) $B$ is true'.
+
+A fundamental observation:
+
+\begin{equation}
+    (A \implies B) \iff (\neg B \implies \neg A)
+\end{equation}
+
+$$
+\begin{array}{|c|c||c|c|c|c|}
+    \hline
+    A & B & \neg A & \neg B & A \implies B & \neg B \implies \neg A \\
+    \hline
+    T & T & F & F & T & T \\
+    T & F & F & T & F & F \\
+    F & T & T & F & T & T \\
+    F & F & T & T & T & T \\
+    \hline
+\end{array}
+$$
+
+\noindent This follows directly from Equation \ref{eqn:implies definition} and is called the \textbf{contrapositive}\index{contrapositive} of the statement $A \implies B$.
+
+For example, if $A$ is `There are clouds in the sky' and $B$ is `It is raining', then $B \implies A$ is the statement `If it is raining, then there are clouds in the sky'. Its contrapositive is `If there are no clouds in the sky, then it is not raining'.
+
+If $B \implies A$ is true it does not, in general, follow that $\neg B \implies \neg A$ is true, for example, even if `It is not raining' it is possible that `There are clouds in the sky'.
+
+The following defines $A$ is true whenever $B$ is true and is read as `$A$ is true, by definition, if $B$ is true':
+
+$$
+A :\iff B
+$$
+
+\medskip
+
+In math, a true statement is often called a \textbf{proposition}\index{proposition}, \textbf{theorem}\index{theorem}, \textbf{lemma}\index{lemma}, or \textbf{corollary}\index{corollary}. Typically, propositions are of the form $A \implies B$ and since the statement is automatically true if $A$ is false (see last two lines of the truth table), to prove the statement true, suppose $A$ is true then show that $B$ is also true.
+
+Proofs can be done directly or `by contradiction'. Directly, one can use the fact that 
+
+\begin{equation} \label{eqn:a implies c implies b}
+    (A \implies C) \land (C \implies B) \implies (A \implies B)
+\end{equation}
+
+If $A \implies C$ and $C \implies B$ are each separately already known to be true, then by Equation \ref{eqn:a implies c implies b} $A \implies B$ is also true. 
+
+A proof by \textbf{contradiction}\index{contradiction} supposes that $B$ is false. The one proves, using the assumption that $A$ is true, a statement $C$ which is already known to be false. It follows from this `contradiction' that $\neg B$ cannot be true, and hence $B$ is true.
+
+Sometimes easier to prove contrapositive.
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+    \item TODO: do this
+    \item TODO: do this
+\end{enumerate}
