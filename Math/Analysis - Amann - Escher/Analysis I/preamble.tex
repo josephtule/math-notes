@@ -14,6 +14,7 @@
 %                       MATH PACKAGES
 % --------------------------------------------------------------
 \usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\numberwithin{equation}{section}
 \usepackage{mathrsfs} % cannot be used with the following line (standard math font)
 % \usepackage{newtxtext,newtxmath} % cannot be used with the previous line (springer math font)
 \usepackage{esint} % extended integrals
@@ -24,8 +25,11 @@
 %                       GRAPHICS & COLOR
 % --------------------------------------------------------------
 \usepackage{graphicx}
+\graphicspath{{images/}}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
 \usetikzlibrary{positioning,decorations.pathmorphing,arrows,calc,angles,quotes}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -118,6 +122,10 @@
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\diag}{\operatorname{diag}}
 \newcommand{\image}{\operatorname{Im}}
+
+% text in math mode
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\id}{\text{id}}
 
 % Matrices
 \newcommand{\matt}[1]{
