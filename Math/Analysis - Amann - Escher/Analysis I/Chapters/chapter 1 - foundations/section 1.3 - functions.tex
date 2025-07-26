@@ -12,4 +12,28 @@ Here $f(x) \in Y$ is the \textbf{value}\index{function!value} of $f$ at $x$. The
 $$
 \text{im}(f) := \{y \in Y: \exists x \in X : y = f(x)\}
 $$
-is called the \tbf{image}\index{function!image} or \tbf{range}\index{function!range} of $f$.
+is called the \tbf{image}\index{function!image} or \tbf{range}\index{function!range} of $f$, it is the subset of the codomain that is `reachable' by the function.
+
+If $f : X \to Y$ then 
+$$
+\text{graph}(f) := \{(x,y) \in X \times Y : y = f(x)\} = \{(x,f(x) \in X \times Y: x \in X)\}
+$$
+is called the \tbf{graph}\index{function!graph} of $f$.
+
+\begin{remark}
+    Let $G \setin X \times Y$ with the property $\forall x \in X, \exists! y \in Y$ with $(x,y) \in G$. The function $f : X \to Y$ with the rule that $\forall x \in X, f(x) := y, y \in Y$ where $y$ is the unique element such that $(x,y) \in G$. Clearly, $\text{graph}(f) = G$. So a function, $f:X\to Y$ is defined as the ordered triple $f = (X,G,Y), G \setin X \times Y$ such that $\forall x \in X, \exists! y \in Y, (x,y) \in G$.
+\end{remark}
+
+\subsection{Simple Examples}
+
+$X = \vno$ and $Y = \vno$ are not excluded. If $X = \vno$ then there is only one function called the \tbf{empty function}\index{function!empty function}, $\vno : \vno \to Y$. If $Y = \vno$ but $X \neq \vno$ then there are no functions from $X$ to $Y$. Two functions $f : X \to Y$ and $g : U \to V$ are \tbf{equal}\index{function!equal}, $f = g$, if 
+$$
+X = U, \quad Y = V, \quad, \text{ and } f(x) = g(x), \forall x \in X
+$$
+
+\begin{example}
+    \begin{enumerate}[label=(\alph*)]
+        \item $\text{id}_X: X \to X, x \mapsto x$ is the \tbf{identity function}\index{function!identity function} (of $X$). Sometimes written $\text{id}$ if $X$ is clear from context.
+        \item 
+    \end{enumerate}
+\end{example}
